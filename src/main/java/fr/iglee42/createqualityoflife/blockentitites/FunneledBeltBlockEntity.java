@@ -84,8 +84,8 @@ public class FunneledBeltBlockEntity extends KineticBlockEntity {
 	public void tick() {
 		super.tick();
 
-		if (!ModBlocks.FUNNELED_BELT.has(level.getBlockState(worldPosition)))
-			return;
+		/*if (!ModBlocks.FUNNELED_BELT.has(level.getBlockState(worldPosition)))
+			return;*/
 
 		if (inventory == null){
 			initializeItemHandler();

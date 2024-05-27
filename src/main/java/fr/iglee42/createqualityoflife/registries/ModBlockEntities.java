@@ -27,7 +27,7 @@ public class ModBlockEntities {
     public static  BlockEntityEntry<FunneledBeltBlockEntity> FUNNELED_BELT = REGISTRATE
             .blockEntity("funneled_belt", FunneledBeltBlockEntity::new)
             .instance(() -> FunneledBeltInstance::new, false)
-            .validBlocks(ModBlocks.FUNNELED_BELT)
+            //.validBlocks(ModBlocks.FUNNELED_BELT)
             .renderer(() -> FunneledBeltRenderer::new)
             .register();
 

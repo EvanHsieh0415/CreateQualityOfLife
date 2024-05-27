@@ -41,8 +41,8 @@ public class FunneledBeltInstance extends KineticBlockEntityInstance<FunneledBel
     public FunneledBeltInstance(MaterialManager materialManager, FunneledBeltBlockEntity blockEntity) {
         super(materialManager, blockEntity);
 
-        if (!ModBlocks.FUNNELED_BELT.has(blockState))
-            return;
+        /*if (!ModBlocks.FUNNELED_BELT.has(blockState))
+            return;*/
 
         keys = new ArrayList<>(2);
 

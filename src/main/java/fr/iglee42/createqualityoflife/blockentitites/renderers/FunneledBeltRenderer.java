@@ -55,7 +55,7 @@ public class FunneledBeltRenderer extends SafeBlockEntityRenderer<FunneledBeltBl
 		if (!Backend.canUseInstancing(be.getLevel())) {
 
 			BlockState blockState = be.getBlockState();
-			if (!ModBlocks.FUNNELED_BELT.has(blockState)) return;
+			//if (!ModBlocks.FUNNELED_BELT.has(blockState)) return;
 
 			Direction facing = blockState.getValue(FunneledBeltBlock.HORIZONTAL_FACING);
 			AxisDirection axisDirection = facing.getAxisDirection();

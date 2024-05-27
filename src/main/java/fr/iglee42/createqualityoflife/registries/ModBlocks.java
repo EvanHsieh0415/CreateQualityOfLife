@@ -55,6 +55,7 @@ public class ModBlocks {
                     .transform(BuilderTransformers.backtank(ModItems.SHADOW_RADIANCE_CHESTPLATE::get))
                     .register();
 
+/*
     public static BlockEntry<FunneledBeltBlock> FUNNELED_BELT = REGISTRATE.block("funneled_belt", FunneledBeltBlock::new)
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.mapColor(MapColor.METAL))
@@ -68,6 +69,7 @@ public class ModBlocks {
             .properties(p->p.rarity(Rarity.UNCOMMON))
             .transform(customItemModel())
             .register();
+*/
 
 
 
