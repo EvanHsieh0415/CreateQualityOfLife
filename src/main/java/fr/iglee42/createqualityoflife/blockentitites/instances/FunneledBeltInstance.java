@@ -41,12 +41,11 @@ public class FunneledBeltInstance extends KineticBlockEntityInstance<FunneledBel
     public FunneledBeltInstance(MaterialManager materialManager, FunneledBeltBlockEntity blockEntity) {
         super(materialManager, blockEntity);
 
-        /*if (!ModBlocks.FUNNELED_BELT.has(blockState))
-            return;*/
+        if (!ModBlocks.FUNNELED_BELT.has(blockState)) return;
 
         keys = new ArrayList<>(2);
 
-        facing = blockState.getValue(FunneledBeltBlock.HORIZONTAL_FACING);
+        facing = FunneledBeltBlockEntity.getDirectionFromAxis(blockState);
         alongX = facing.getAxis() == Direction.Axis.X;
         alongZ = facing.getAxis() == Direction.Axis.Z;
 
@@ -128,8 +127,7 @@ public class FunneledBeltInstance extends KineticBlockEntityInstance<FunneledBel
     }
 
     private Direction getOrientation() {
-        return blockState.getValue(BeltBlock.HORIZONTAL_FACING)
-                .getClockWise();
+        return FunneledBeltBlockEntity.getDirectionFromAxis(blockState).getClockWise();
     }
 
     private BeltData setup(BeltData key, boolean bottom, SpriteShiftEntry spriteShift) {
@@ -152,4 +150,8 @@ public class FunneledBeltInstance extends KineticBlockEntityInstance<FunneledBel
         return key;
     }
 
+    @Override
+    protected Direction.Axis getRotationAxis() {
+        return getOrientation().getAxis();
+    }
 }

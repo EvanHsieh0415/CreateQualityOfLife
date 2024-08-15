@@ -7,13 +7,19 @@
   "mixins": [
     "AllCreativeModeTabsMixin",
     "BacktankRendererMixin",
+    "BeltFunnelBlockMixin",
     "BlockEntityTypeMixin",
     "ChromaticCompoundItemMixin",
+    "DivingBootsItemMixin",
     "FlapDisplayBlockMixin",
+    "ModelBuilderMixin",
+    "ModelFileMixin",
+    "MysteriousItemConversionCategoryMixin",
     "NetheriteDivingHandlerMixin",
     "ScheduleItemMixin"
   ],
   "client": [
+    "BacktankArmorLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

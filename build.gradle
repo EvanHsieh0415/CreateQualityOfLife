@@ -17,7 +17,7 @@ apply plugin: 'org.spongepowered.mixin'
 
 group = 'fr.iglee42'
 
-version = '1.20.1-1.1-ht2'
+version = '1.20.1-1.2'
 
 java {
     archivesBaseName = 'createqol'

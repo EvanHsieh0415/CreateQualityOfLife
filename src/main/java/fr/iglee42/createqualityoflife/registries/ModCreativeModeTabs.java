@@ -7,6 +7,8 @@ import com.tterrag.registrate.util.entry.ItemProviderEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import fr.iglee42.createqualityoflife.CreateQOL;
 import fr.iglee42.createqualityoflife.blocks.ChippedSawBlock;
+import fr.iglee42.createqualityoflife.blocks.FunneledBeltBlock;
+import fr.iglee42.createqualityoflife.blocks.SingleBeltBlock;
 import fr.iglee42.createqualityoflife.utils.Features;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Reference2ReferenceOpenHashMap;
@@ -57,6 +59,7 @@ public class ModCreativeModeTabs {
 		private static boolean testExclusion(Item item) {
 			if (!CreateQOL.isActivate(Features.INVENTORY_LINKER) && (item instanceof BlockItem be ? be.getBlock() == ModBlocks.INVENTORY_LINKER.get() : item == ModItems.PLAYER_PAPER.asItem())) return false;
 			if (!CreateQOL.isActivate(Features.CHIPPED_SAW) && item instanceof BlockItem be && be.getBlock() instanceof ChippedSawBlock) return false;
+			if (!CreateQOL.isActivate(Features.CUSTOM_BELTS) && item instanceof BlockItem be && (be.getBlock() instanceof SingleBeltBlock || be.getBlock() instanceof FunneledBeltBlock)) return false;
 			if (!CreateQOL.isActivate(Features.SHADOW_RADIANCE) && (ModItems.SHADOW_RADIANCE.is(item) || ModItems.SHADOW_RADIANCE_HELMET.is(item) || ModItems.SHADOW_RADIANCE_CHESTPLATE.is(item) || ModItems.SHADOW_RADIANCE_LEGGINGS.is(item) || ModItems.SHADOW_RADIANCE_BOOTS.is(item))) return false;
 			if (ModItems.SHADOW_RADIANCE_CHESTPLATE_PLACEABLE.is(item)) return false;
 			return true;
@@ -90,7 +93,7 @@ public class ModCreativeModeTabs {
 			Map<ItemProviderEntry<?>, Function<Item, ItemStack>> simpleFactories = Map.of(
 					ModItems.SHADOW_RADIANCE_CHESTPLATE, item -> {
 						ItemStack stack = new ItemStack(item);
-						stack.getOrCreateTag().putInt("Air", BacktankUtil.maxAirWithoutEnchants());
+						stack.getOrCreateTag().putInt("Air", BacktankUtil.maxAir(stack));
 						return stack;
 					}
 			);

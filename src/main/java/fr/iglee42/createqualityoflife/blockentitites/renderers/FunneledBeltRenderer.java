@@ -55,9 +55,9 @@ public class FunneledBeltRenderer extends SafeBlockEntityRenderer<FunneledBeltBl
 		if (!Backend.canUseInstancing(be.getLevel())) {
 
 			BlockState blockState = be.getBlockState();
-			//if (!ModBlocks.FUNNELED_BELT.has(blockState)) return;
+			if (!ModBlocks.FUNNELED_BELT.has(blockState)) return;
 
-			Direction facing = blockState.getValue(FunneledBeltBlock.HORIZONTAL_FACING);
+			Direction facing = FunneledBeltBlockEntity.getDirectionFromAxis(blockState);
 			AxisDirection axisDirection = facing.getAxisDirection();
 
 			boolean alongX = facing.getAxis() == Direction.Axis.X;
@@ -106,7 +106,7 @@ public class FunneledBeltRenderer extends SafeBlockEntityRenderer<FunneledBeltBl
 
 			}
 
-				Direction dir = blockState.getValue(FunneledBeltBlock.HORIZONTAL_FACING).getClockWise();
+				Direction dir = FunneledBeltBlockEntity.getDirectionFromAxis(blockState).getClockWise();
 
 				Supplier<PoseStack> matrixStackSupplier = () -> {
 					PoseStack stack = new PoseStack();
