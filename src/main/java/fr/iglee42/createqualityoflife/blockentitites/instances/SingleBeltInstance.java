@@ -80,7 +80,7 @@ public class SingleBeltInstance extends KineticBlockEntityInstance<SingleBeltBlo
             SpriteShiftEntry spriteShiftEntry = SingleBeltRenderer.getSpriteShiftEntry(color, bottom);
             key.setScrollTexture(spriteShiftEntry)
                .setColor(blockEntity)
-               .setRotationalSpeed(getScrollSpeed());
+               .setRotationalSpeed(facing.getAxisDirection() == Direction.AxisDirection.POSITIVE ? getScrollSpeed() : -getScrollSpeed() );
             bottom = false;
         }
 
@@ -105,13 +105,7 @@ public class SingleBeltInstance extends KineticBlockEntityInstance<SingleBeltBlo
     }
 
     private float getScrollSpeed() {
-        float speed = -blockEntity.getSpeed();
-        if (((facing.getAxisDirection() == Direction.AxisDirection.NEGATIVE)) ^
-                ((alongX))) {
-            speed = -speed;
-        }
-
-        return speed;
+        return blockEntity.getSpeed();
     }
 
     private Instancer<RotatingData> getPulleyModel() {
